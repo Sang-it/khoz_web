@@ -150,27 +150,6 @@ export default function LandingPage() {
                             >
                                 A lightning-fast file search app for macOS, built for speed and simplicity.
                             </motion.p>
-                            <motion.div className="flex space-x-8">
-                                <motion.div variants={itemVariants} className="mb-10">
-                                    <Button
-                                        onClick={handleDownload_aarch64}
-                                        className="bg-gray-900 hover:bg-black text-white px-6 py-5 rounded-lg text-lg flex items-center gap-2 font-medium transition-all duration-300 font-display hover:scale-105"
-                                    >
-                                        <Download className="h-5 w-5" />
-                                        Download for ARM
-                                    </Button>
-                                </motion.div>
-
-                                <motion.div variants={itemVariants} className="mb-10">
-                                    <Button
-                                        onClick={handleDownload_x86}
-                                        className="bg-gray-900 hover:bg-black text-white px-6 py-5 rounded-lg text-lg flex items-center gap-2 font-medium transition-all duration-300 font-display hover:scale-105"
-                                    >
-                                        <Download className="h-5 w-5" />
-                                        Download for Intel
-                                    </Button>
-                                </motion.div>
-                            </motion.div>
                         </motion.div>
                     </AnimatePresence>
                 )
@@ -289,29 +268,54 @@ export default function LandingPage() {
                                     </Button>
                                 </motion.div>
                             </motion.div>
-                            <motion.div
-                                className="bg-gray-50 p-8 rounded-xl border border-gray-100 max-w-2xl shadow-sm"
-                                variants={itemVariants}
-                            >
-                                <h3 className="text-2xl font-semibold mb-6 font-display">System Requirements</h3>
-                                <ul className="space-y-4 text-left">
-                                    <li className="flex items-start">
-                                        <span className="text-gray-900 mr-3 font-bold">•</span>
-                                        <span className="text-gray-700">macOS 12 (Monterey) or later</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="text-gray-900 mr-3 font-bold">•</span>
-                                        <span className="text-gray-700">Intel or Apple Silicon processor</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="text-gray-900 mr-3 font-bold">•</span>
-                                        <span className="text-gray-700">Minimal disk space (less than 10MB)</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="text-gray-900 mr-3 font-bold">•</span>
-                                        <span className="text-gray-700">Low memory footprint</span>
-                                    </li>
-                                </ul>
+
+                            <motion.div className="grid grid-cols-2 gap-8" variants={containerVariants}>
+                                <motion.div
+                                    className="bg-gray-50 p-8 rounded-xl border border-gray-100 max-w-3xl shadow-sm"
+                                    variants={itemVariants}
+                                >
+                                    <h3 className="text-2xl font-semibold mb-6 font-display">System Requirements</h3>
+                                    <ul className="space-y-4 text-left">
+                                        <li className="flex items-start">
+                                            <span className="text-gray-900 mr-3 font-bold">•</span>
+                                            <span className="text-gray-700">macOS 12 (Monterey) or later</span>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="text-gray-900 mr-3 font-bold">•</span>
+                                            <span className="text-gray-700">Intel or Apple Silicon processor</span>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="text-gray-900 mr-3 font-bold">•</span>
+                                            <span className="text-gray-700">Minimal disk space (less than 10MB)</span>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="text-gray-900 mr-3 font-bold">•</span>
+                                            <span className="text-gray-700">Low memory footprint</span>
+                                        </li>
+                                    </ul>
+                                </motion.div>
+
+                                <motion.div
+                                    className="bg-gray-50 p-8 rounded-xl border border-gray-100 max-w-3xl shadow-sm"
+                                    variants={itemVariants}
+                                >
+                                    <h3 className="text-2xl font-semibold mb-6 font-display">After Install</h3>
+                                    <ul className="space-y-4 text-left">
+                                        <li className="flex items-start">
+                                            <span className="text-gray-900 mr-3 font-bold">•</span>
+                                            <span className="text-gray-700">Open the terminal and run: </span>
+                                        </li>
+
+                                        <li className="flex items-start">
+                                            <span className="text-gray-900 mr-3 font-bold">•</span>
+                                            <code className="bg-gray-100 px-1 py-0.5 rounded text-sm">xattr -d com.apple.quarantine /Applications/khoz.app</code>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="text-gray-900 mr-3 font-bold">•</span>
+                                            <span className="text-gray-700">We have to do this because Apple restricts unsinged apps. This bypasses that.</span>
+                                        </li>
+                                    </ul>
+                                </motion.div>
                             </motion.div>
                         </motion.div>
                     </AnimatePresence>
