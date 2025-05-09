@@ -51,11 +51,23 @@ export default function LandingPage() {
         })
     }, [])
 
-    const handleDownload = () => {
+    const handleDownload_aarch64 = () => {
         // Create a temporary link and trigger download
         const link = document.createElement("a")
-        link.href = "khoz.zip"
-        link.download = "khoz.zip"
+        link.href = "khoz_aarch64.dmg"
+        link.download = "khoz_aarch64.dmg"
+        document.body.appendChild(link)
+        link.click()
+
+        // Clean up
+        document.body.removeChild(link)
+    }
+
+    const handleDownload_x86 = () => {
+        // Create a temporary link and trigger download
+        const link = document.createElement("a")
+        link.href = "khoz_x86_64.dmg"
+        link.download = "khoz_x86_64.dmg"
         document.body.appendChild(link)
         link.click()
 
@@ -138,14 +150,26 @@ export default function LandingPage() {
                             >
                                 A lightning-fast file search app for macOS, built for speed and simplicity.
                             </motion.p>
-                            <motion.div variants={itemVariants} className="mb-10">
-                                <Button
-                                    onClick={handleDownload}
-                                    className="bg-gray-900 hover:bg-black text-white px-6 py-5 rounded-lg text-lg flex items-center gap-2 font-medium transition-all duration-300 font-display hover:scale-105"
-                                >
-                                    <Download className="h-5 w-5" />
-                                    Download for macOS
-                                </Button>
+                            <motion.div className="flex space-x-8">
+                                <motion.div variants={itemVariants} className="mb-10">
+                                    <Button
+                                        onClick={handleDownload_aarch64}
+                                        className="bg-gray-900 hover:bg-black text-white px-6 py-5 rounded-lg text-lg flex items-center gap-2 font-medium transition-all duration-300 font-display hover:scale-105"
+                                    >
+                                        <Download className="h-5 w-5" />
+                                        Download for ARM
+                                    </Button>
+                                </motion.div>
+
+                                <motion.div variants={itemVariants} className="mb-10">
+                                    <Button
+                                        onClick={handleDownload_x86}
+                                        className="bg-gray-900 hover:bg-black text-white px-6 py-5 rounded-lg text-lg flex items-center gap-2 font-medium transition-all duration-300 font-display hover:scale-105"
+                                    >
+                                        <Download className="h-5 w-5" />
+                                        Download for Intel
+                                    </Button>
+                                </motion.div>
                             </motion.div>
                         </motion.div>
                     </AnimatePresence>
@@ -244,14 +268,26 @@ export default function LandingPage() {
                             <motion.p className="text-lg text-gray-700 mb-10 max-w-2xl leading-relaxed" variants={itemVariants}>
                                 Khoz is free, open-source, and requires macOS 12 or later. The installer is less than 10MB.
                             </motion.p>
-                            <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                                <Button
-                                    onClick={handleDownload}
-                                    className="bg-gray-900 hover:bg-black text-white px-8 py-6 rounded-lg text-lg flex items-center gap-2 mb-12 font-medium transition-all duration-300 font-display"
-                                >
-                                    <Download className="h-5 w-5" />
-                                    Download Khoz for macOS
-                                </Button>
+                            <motion.div className="flex space-x-8">
+                                <motion.div variants={itemVariants} className="mb-10">
+                                    <Button
+                                        onClick={handleDownload_aarch64}
+                                        className="bg-gray-900 hover:bg-black text-white px-6 py-5 rounded-lg text-lg flex items-center gap-2 font-medium transition-all duration-300 font-display hover:scale-105"
+                                    >
+                                        <Download className="h-5 w-5" />
+                                        Download for ARM
+                                    </Button>
+                                </motion.div>
+
+                                <motion.div variants={itemVariants} className="mb-10">
+                                    <Button
+                                        onClick={handleDownload_x86}
+                                        className="bg-gray-900 hover:bg-black text-white px-6 py-5 rounded-lg text-lg flex items-center gap-2 font-medium transition-all duration-300 font-display hover:scale-105"
+                                    >
+                                        <Download className="h-5 w-5" />
+                                        Download for Intel
+                                    </Button>
+                                </motion.div>
                             </motion.div>
                             <motion.div
                                 className="bg-gray-50 p-8 rounded-xl border border-gray-100 max-w-2xl shadow-sm"
