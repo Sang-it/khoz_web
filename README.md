@@ -1,5 +1,10 @@
 # Khoz
 
+> All queries should start with '/'
+> Queries with no '/' defaults to App search
+> /reset to reset index
+> /add <path> to add the <path> to the index
+> Also works like a calculator
 
 ### Query Language Cheat Sheet
 
